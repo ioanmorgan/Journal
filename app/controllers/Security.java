@@ -14,6 +14,14 @@ public class Security extends Secure.Security {
         }
     }
 	
+	static Users getConnectedUser() {
+        if(Security.isConnected()) {
+            Users user = Users.find("email", Security.connected()).first();
+            return user;
+        }
+		return null;
+    }
+	
     static boolean authenticate(String username, String password) {
         Users user = Users.find("byEmail", username).first();
         return user != null && user.password.equals(password);

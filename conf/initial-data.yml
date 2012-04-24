@@ -64,6 +64,27 @@ Published(secondPublished):
 Published(thirdPublished):
     article: thirdArticle
     edition: firstEdition
+    
+Revisions(rev1A1):
+    article_ID: firstArticle
+    date: 26/04/2012
+    article_abstract: "This is an article abstract for rev 1"
+    revision_number: 1
+    url: someURL1    
+    
+Revisions(rev2A1):
+    article_ID: firstArticle
+    date: 27/04/2012
+    article_abstract: "This is an article abstract for rev 2"
+    revision_number: 2
+    url: someURL2    
+    
+Revisions(rev3A1):
+    article_ID: firstArticle
+    date: 28/04/2012
+    article_abstract: "This is an article abstract for rev 3"
+    revision_number: 3
+    url: someURL3
 
 Users(u1):
     email: alighe89@gmail.com

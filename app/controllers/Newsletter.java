@@ -26,9 +26,7 @@ public class Newsletter extends Controller {
     	System.out.println("User is auditor: " + Security.isAuditor());
     	System.out.println("User is reviewer: " + Security.isReviewer());
     	System.out.println("User is editor: " + Security.isEditor());
-    }
-	
-	
+    }	
 	
 	/**
 	 * renders the index page

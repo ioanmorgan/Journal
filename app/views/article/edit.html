@@ -1,4 +1,14 @@
 #{extends 'main.html' /}
 #{set title:'Edit Article' /}
 
-edit
+&{responce}
+
+<form action="submitEdit" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="&{article.id}"><br/> 
+    Title: <input type="text" name="title" value="&{article.title}"><br/> 
+    Abstract: <textarea rows="8" cols="40" name=discription>&{revision.article_abstract}</textarea> <br/> 
+    Keywords (optional): <input type="text" name="keywords" value=""><br/> 
+    Additional Authors (optional): <input type="text" name="authors" value=""><br/> 
+    Upload Article: <input type="file" name="article"><br/>
+    <input type="submit" value="Submit" />
+</form>

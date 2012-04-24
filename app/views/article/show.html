@@ -1,48 +1,26 @@
 #{extends 'main.html' /}
 #{set title:'Article' /}
 
-<div id="vol-nav" class="navbar">
-	<div class="navbar-inner">
-		<div class="container">
-			<h2>Recent volumes:</h2>
-			<ul class="nav">
-				#{if volumes}				
-					#{list items:volumes, as:'volume'}
-						<li><a href="#">${volume.name}</a></li>						
-					#{/list}
-				#{/if}
-				<li><a href="#">Archive</a></li>
-			</ul>
-			<form class="navbar-search">
-				<input type="text" class="search-query" placeholder="Search">
-			</form>
-		</div>    
-	</div>
-</div>
-<div id="edition-nav" class="navbar">
-	<div class="navbar-inner">
-		<div class="container">
-			<ul class="nav">
-				#{list items:editions, as:'edition'}
-					<li><a href="#">${edition.name}</a></li>						
-				#{/list}
-			</ul>
-		</div>
-	</div>
-</div>
-
 <div class="container">
 	<div class="row">
 		<div class="span8">
-			<h1>${article.title}</h1>
-			<p>${article.summary}</p>
+      #{if latestRev}
+        #{if article}
+          <h1>${article.title} - Revision ${latestRev.revision_number}</h1>
+          <p>${latestRev.article_abstract}</p>
 			
-			${article.tags.size() ?: 'No'} Tags
-			<ul>
-			   #{list items:article.tags, as:'tag'}
-					<li><a href="#">${tag.title}</a></li>						
-				#{/list}
-			</ul>
+          ${article.tags.size() ?: 'No'} Tags
+          <ul>
+            #{list items:article.tags, as:'tag'}
+              <li><a href="#">${tag.title}</a></li>						
+            #{/list}
+          </ul>
+          <a href="@{Article.edit(article.id)}">Edit</a>
+          #{if previous_revision_number}
+           <!-- <a href="@{Article.showRevision(previous_revision_number)}">Show previous Revision</a>-->
+          #{/if}
+        #{/if}
+      #{/if}
 		</div>
 		<div class="span6">
 		

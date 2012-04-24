@@ -11,9 +11,7 @@ import play.db.jpa.*;
 public class Articles extends Model {
 
     public String title;
-	public String pdf;
-	@Lob
-	public String summary;
+	public Boolean published;
     
     @ManyToOne
     public Users user;
@@ -21,14 +19,9 @@ public class Articles extends Model {
 	@ManyToMany(mappedBy="articles") 
 	public List<Tag> tags;
     
-	public Articles (Users user, String title, List<Tag> tags) {
-		this(user, title, "", tags);
-	}
-	
-    public Articles(Users user, String title, String summary, List<Tag> tags){
+    public Articles(Users user, String title, List<Tag> tags){
         this.user = user;
         this.title = title;
-        this.summary = summary;
 		this.tags = tags;
     }
  

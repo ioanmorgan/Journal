@@ -2,6 +2,8 @@
 #{set title:'Article index' /}
 
 
-${Articles}
-
-index
+#{if articles}				
+	#{list items:articles, as:'article'}
+	<li><a href="@{Article.show(article.id)}">${article.title}</a></li>						
+	#{/list}
+#{/if}

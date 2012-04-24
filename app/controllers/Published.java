@@ -5,6 +5,8 @@ import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.With;
 
+import models.*;
+
 @With(Secure.class)
 public class Published extends Controller {
 
@@ -19,7 +21,7 @@ public class Published extends Controller {
     public static void unpublishedShow(){
         /*add user login check*/
         /*add month check for tw0 months to force these to be chosen */
-       List unpublished = Published.find("published", false).fetch();
+    	List unpublished = Articles.find("published", false).fetch();
         render ("unpublished/index.html", unpublished);
     } 
     
